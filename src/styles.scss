@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import 'node_modules/normalize-scss/sass/normalize';
+@import 'node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables';
+@import 'node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins/clearfix';
+@import 'node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins/grid-framework';
+@import 'node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins/grid';
+@import 'node_modules/bootstrap-sass/assets/stylesheets/bootstrap/grid';
+
+@include normalize();
+
+* {
+    box-sizing: border-box;
+}

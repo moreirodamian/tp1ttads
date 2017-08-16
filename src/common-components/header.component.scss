@@ -1,0 +1,25 @@
+@import '~globals.scss';
+
+.header {
+    background-color: $primary;
+    color: $white;
+    padding: 15px 0px;
+    width: 100%;
+
+    &--navigation {
+        display: inline-block;
+    }
+
+    &--navigation-list {
+        margin: 0;
+        padding: 0;
+    }
+
+    &--navigation-item {
+        display: inline-block;
+    }
+
+    &--user-section {
+        float: right;
+    }
+}
