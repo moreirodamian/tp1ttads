@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieService } from '@common/services/movie.service';
 
-import { Movie } from '@classes/Movie';
+import { Movie } from '@classes/movie';
 
 @Component({
     selector: 'main-view',
@@ -17,6 +17,9 @@ export class MainViewComponent implements OnInit {
     constructor (private movieService: MovieService) { }
 
     ngOnInit (): void {
-
+        this.movieService.getMovies(3)
+            .then((movies: Movie[]) => {
+                console.log(movies);
+            });
     }
 }

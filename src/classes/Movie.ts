@@ -1,5 +1,0 @@
-class Movie {
-
-}
-
-export { Movie };

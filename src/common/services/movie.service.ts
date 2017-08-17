@@ -1,8 +1,8 @@
-import { Http } from '@angular/http';
+import { Http, URLSearchParams } from '@angular/http';
+import { HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Movie } from '@classes/Movie';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
+import { Movie } from '@classes/movie';
+import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 class MovieService {
@@ -12,21 +12,36 @@ class MovieService {
     constructor (private http: Http) { }
 
     getApiUrl (url: string): string {
-        url = this.apiUrl + url;
-
-        if (url.indexOf('?') !== -1) {
-            url += '&api_key=' + this.apiKey;
-        } else {
-            url += '?api_key' + this.apiKey;
-        }
-
-        return url;
+        return this.apiUrl + url;
     }
 
-    getMovies (): Observable<Movie[]>  {
+    getParams (paramsData: any): URLSearchParams {
+        const keys = Object.keys(paramsData);
+        const params = new URLSearchParams();
 
-        return this.http.get(this.getApiUrl('discover/movie?sort_by=popularity.desc'))
-            .map(response => response.json());
+        params.set('api_key', this.apiKey);
+
+        keys.forEach((key: string) => {
+            params.set(key, paramsData[key]);
+        });
+
+        return params;
+    }
+
+    getMovies (page: number = 1): Promise<Movie[]>  {
+        const params = this.getParams({
+            page: page,
+            sort_by: 'popularity.desc'
+        });
+
+        return this.http.get(this.getApiUrl('discover/movie'), {params: params})
+            .toPromise()
+            .then(response => response.json().results as Movie[])
+            .catch(this.handleError);
+    }
+
+    handleError (): void {
+
     }
 }
 
