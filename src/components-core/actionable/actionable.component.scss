@@ -1,0 +1,23 @@
+@import '~globals.scss';
+
+.actionable {
+    background: none;
+    border: 1px solid;
+    border-radius: $radius;
+    cursor: pointer;
+    padding: 10px 20px;
+
+    &_block {
+        width: 100%;
+    }
+
+    &_primary {
+        background-color: $primary;
+        color: $white;
+
+        &:focus,
+        &:hover {
+            background-color: $primary-dark;
+        }
+    }
+}
