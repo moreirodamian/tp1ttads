@@ -4,4 +4,8 @@
     border: 1px solid #CCCCCC;
     border-radius: $radius;
     padding: 8px 10px;
+
+    &_block {
+        width: 100%;
+    }
 }

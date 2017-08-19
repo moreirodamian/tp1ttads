@@ -1,0 +1,12 @@
+<card [ngClass]="getClass()">
+    <card-header>
+        {{movie.title}}
+        <div>{{getRestrictionLabel()}}</div>
+    </card-header>
+    <div class="movie--overview">
+        {{movie.overview}}
+    </div>
+    <card-footer>
+        <actionable block="true">View movie information</actionable>
+    </card-footer>
+</card>

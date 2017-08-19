@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { CommonModule } from '@common/common.module';
+import { CommonLibsModule } from '@common/common.module';
+import { ComponentsCoreModule } from '@components-core/components-core.module';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -18,7 +19,8 @@ import { MovieSummaryComponent } from '@app/components/movie-summary.component';
     ],
     imports: [
         BrowserModule,
-        CommonModule,
+        CommonLibsModule,
+        ComponentsCoreModule,
         FormsModule,
         HttpModule
     ],

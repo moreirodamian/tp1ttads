@@ -1,7 +1,7 @@
 import { Http, URLSearchParams } from '@angular/http';
 import { HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Movie } from '@classes/movie';
+import { Movie, MovieInterface } from '@classes/movie';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
@@ -28,7 +28,7 @@ class MovieService {
         return params;
     }
 
-    getMovies (page: number = 1): Promise<Movie[]>  {
+    getMovies (page: number = 1): Promise<void | Movie[]>  {
         const params = this.getParams({
             page: page,
             sort_by: 'popularity.desc'
@@ -36,7 +36,7 @@ class MovieService {
 
         return this.http.get(this.getApiUrl('discover/movie'), {params: params})
             .toPromise()
-            .then(response => response.json().results as Movie[])
+            .then(response => response.json().results.map((data: MovieInterface) => new Movie(data)))
             .catch(this.handleError);
     }
 

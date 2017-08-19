@@ -15,6 +15,7 @@ export class TextBoxComponent {
     getClass (): Object {
         return {
             'text-box': true,
+            'text-box_block': (this.block),
             'text-box_disabled': (this.disabled)
         };
     }

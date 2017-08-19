@@ -11,15 +11,16 @@ import { Movie } from '@classes/movie';
     ]
 })
 export class MainViewComponent implements OnInit {
+    private movies: Movie[];
 
     providers: [MovieService]
 
     constructor (private movieService: MovieService) { }
 
     ngOnInit (): void {
-        this.movieService.getMovies(3)
+        this.movieService.getMovies()
             .then((movies: Movie[]) => {
-                console.log(movies);
+                this.movies = movies;
             });
     }
 }
