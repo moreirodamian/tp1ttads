@@ -9,7 +9,12 @@
 
 @include normalize();
 
+body {
+    background-color: #ECEDEE;
+}
+
 * {
     box-sizing: border-box;
     font-family: 'Open Sans', arial, helvetica, sans-serif;
+    font-weight: lighter;
 }

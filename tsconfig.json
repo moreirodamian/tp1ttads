@@ -15,6 +15,9 @@
       "@common/*": [
         "common/*"
       ],
+      "@components-core/*": [
+        "components-core/*"
+      ],
       "@classes/*": [
         "classes/*"
       ]
