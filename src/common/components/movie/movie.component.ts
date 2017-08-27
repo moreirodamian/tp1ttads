@@ -22,7 +22,7 @@ export class MovieComponent implements OnInit {
         };
     }
 
-    getRestrictionLabel (): string {
-        return (this.movie.isOnlyForAdults()) ? 'Adults only' : 'All public';
+    getImageSource (): string {
+        return `https://image.tmdb.org/t/p/w342/${this.movie.posterPath}`;
     }
 }

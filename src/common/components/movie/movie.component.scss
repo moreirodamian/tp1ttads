@@ -2,8 +2,27 @@
 
 .movie {
 
+    &--general-information {
+        height: 20px;
+        margin-bottom: 10px
+    }
+
+    &--poster-image {
+        width: 100%;
+    }
+
     &--overview {
         color: #999999;
         font-size: 13px;
+    }
+
+    &--release-year {
+        font-size: 12px;
+        line-height: 20px;
+    }
+
+    &--vote-average {
+        float: right;
+        line-height: 20px;
     }
 }
