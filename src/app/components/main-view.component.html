@@ -3,7 +3,7 @@
         <div class="col-md-12">
             <card>
                 <div card-content>
-                    <text-box block="true"></text-box>
+                    <input [(ngModel)]="filterText" (keyup)="handleFilterKeyUp()" />
                 </div>
             </card>
         </div>

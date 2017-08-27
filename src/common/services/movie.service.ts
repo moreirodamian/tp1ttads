@@ -28,13 +28,15 @@ class MovieService {
         return params;
     }
 
-    getMovies (page: number = 1): Promise<void | Movie[]>  {
+    getMovies (query: string, page: number = 1): Promise<void | Movie[]>  {
         const params = this.getParams({
             page: page,
+            query: query,
             sort_by: 'popularity.desc'
         });
+        const url = (query) ? 'search/movie' : 'discover/movie';
 
-        return this.http.get(this.getApiUrl('discover/movie'), {params: params})
+        return this.http.get(this.getApiUrl(url), {params: params})
             .toPromise()
             .then(response => response.json().results.map((data: MovieInterface) => new Movie(data)))
             .catch(this.handleError);
