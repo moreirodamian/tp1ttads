@@ -1,5 +1,5 @@
 $black: #000000;
-$blue: #164398;
+$blue: #3663B8;
 $green: #15D86C;
 $light-black: #24292D;
 $light-blue: #3186C5;
@@ -7,7 +7,10 @@ $red: #E71B3C;
 $white: #FFFFFF;
 
 $primary: $blue;
+$primary-dark: darken($blue, 10%);
 $secondary: #000000;
 $tertiary: #000000;
 
 $danger: $red;
+
+$radius: 3px;

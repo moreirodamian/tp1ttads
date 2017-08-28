@@ -1,0 +1,9 @@
+@import '~globals.scss';
+
+.card {
+    background-color: $white;
+    border-radius: $radius;
+    box-shadow: 1px 1px 1px #CCCCCC;
+    margin-bottom: 15px;
+    padding: 20px;
+}

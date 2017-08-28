@@ -1,0 +1,25 @@
+<card [ngClass]="getClass()">
+    <card-header>
+        {{movie.title}}
+    </card-header>
+    <div card-content>
+        <div class="row">
+            <div class="col-md-4">
+                <img [src]="getImageSource()" class="movie--poster-image" />
+            </div>
+            <div class="col-md-8">
+                <div class="movie--general-information">
+                    <span class="movie--release-year">
+                        {{movie.releaseDate.getFullYear()}}
+                    </span>
+                    <span class="movie--vote-average">
+                        {{movie.voteAverage}}
+                    </span>
+                </div>
+                <div class="movie--overview">
+                    {{movie.overview}}
+                </div>
+            </div>
+        </div>
+    </div>
+</card>

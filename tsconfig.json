@@ -7,9 +7,27 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "noImplicitAny": true,
+    "paths": {
+      "@app/*": [
+        "app/*"
+      ],
+      "@common/*": [
+        "common/*"
+      ],
+      "@components-core/*": [
+        "components-core/*"
+      ],
+      "@classes/*": [
+        "classes/*"
+      ]
+    },
     "target": "es5",
     "typeRoots": [
       "node_modules/@types"
+    ],
+    "types": [
+      "node"
     ],
     "lib": [
       "es2017",

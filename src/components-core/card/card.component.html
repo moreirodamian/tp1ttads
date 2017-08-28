@@ -1,0 +1,7 @@
+<div [ngClass]="getClass()">
+    <ng-content select="card-header"></ng-content>
+    <div class="card--content">
+        <ng-content select="[card-content]"></ng-content>
+    </div>
+    <ng-content select="card-footer"></ng-content>
+</div>

@@ -1,0 +1,16 @@
+<div class="main-view container">
+    <div class="row">
+        <div class="col-md-12">
+            <card>
+                <div card-content>
+                    <input [(ngModel)]="filterText" (keyup)="handleFilterKeyUp()" />
+                </div>
+            </card>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-md-6" *ngFor="let movie of movies">
+            <movie [movie]="movie"></movie>
+        </div>
+    </div>
+</div>
