@@ -42,6 +42,18 @@ class MovieService {
             .catch(this.handleError);
     }
 
+    getOneById(movieId: string): Promise<void | Movie> {
+        const params = this.getParams({
+            external_id : movieId
+        });
+        const url = 'find/movie';
+
+        return this.http.get(this.getApiUrl(url), {params:params})
+            .toPromise()
+            .then(response => response.json().resutls.map((data: MovieInterface) => new Movie(data)))
+            .catch(this.handleError);
+    }
+
     handleError (): void {
 
     }
