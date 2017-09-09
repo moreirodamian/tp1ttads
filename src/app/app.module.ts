@@ -9,7 +9,15 @@ import { AppComponent } from '@app/components/app.component';
 import { MainViewComponent } from '@app/components/main-view.component';
 import { MoviesListComponent } from '@app/components/movies-list.component';
 import { MovieSummaryComponent } from '@app/components/movie-summary.component';
-import { MovieDetailsComponent } from "@app/components/movie-details.component";
+import { MovieDetailsComponent } from '@app/components/movie-details.component';
+import { RouterModule, Routes} from '@angular/router';
+
+const routes:Routes = [
+    {
+        path: 'movie-details/:movieID',
+        component: MovieDetailsComponent
+    }
+]
 
 @NgModule({
     declarations: [
@@ -24,7 +32,8 @@ import { MovieDetailsComponent } from "@app/components/movie-details.component";
         CommonLibsModule,
         ComponentsCoreModule,
         FormsModule,
-        HttpModule
+        HttpModule,
+        RouterModule.forRoot(routes)
     ],
     providers: [
 

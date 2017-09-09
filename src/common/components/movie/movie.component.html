@@ -19,6 +19,9 @@
                 <div class="movie--overview">
                     {{movie.overview}}
                 </div>
+                <card-footer>
+                    <button (click)="showDetails(movie.id)">More information</button>
+                </card-footer>
             </div>
         </div>
     </div>
