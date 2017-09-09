@@ -16,7 +16,16 @@ const routes:Routes = [
     {
         path: 'movie-details/:movieID',
         component: MovieDetailsComponent
+    },
+    {
+        path: 'home',
+        component: MainViewComponent
+    },
+    {
+        path:'',
+        component: MainViewComponent
     }
+    //ToDo: Add a PageNotFound component to redirect the path '**'
 ]
 
 @NgModule({

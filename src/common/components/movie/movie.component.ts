@@ -32,7 +32,6 @@ export class MovieComponent implements OnInit {
     }
 
     showDetails (movieId:string): void{
-        console.log(movieId);
-        this._router.navigate(['movie-details', movieId]);
+        this._router.navigate(['/movie-details', movieId]);
     }
 }
