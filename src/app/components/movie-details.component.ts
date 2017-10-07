@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieService } from "../../common/services/movie.service";
 import { Movie } from "../../classes/movie";
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
     selector: 'movies-details',
@@ -17,8 +17,8 @@ export class MovieDetailsComponent implements OnInit {
 
     providers: [MovieService]
     
-    constructor(private movieService: MovieService, private activatedRoute:ActivatedRoute){
-
+    constructor(private movieService: MovieService, 
+    private activatedRoute:ActivatedRoute, private router:Router){
     }
 
     ngOnInit(): void{
@@ -43,6 +43,10 @@ export class MovieDetailsComponent implements OnInit {
 
     getImageSource (): string {
         return `https://image.tmdb.org/t/p/w342/${this.movie.poster_path}`;
+    }
+
+    clickBack(): void{
+        this.router.navigate(['/home']);
     }
 
 }
