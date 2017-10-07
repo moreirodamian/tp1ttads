@@ -12,8 +12,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MovieDetailsComponent implements OnInit {
 
-    private selectedMovie:Movie;
-    private movieId:string;
+    private movie : any;
+    private movieId : string;
 
     providers: [MovieService]
     
@@ -22,14 +22,27 @@ export class MovieDetailsComponent implements OnInit {
     }
 
     ngOnInit(): void{
-        console.log(this.activatedRoute.snapshot.params.movieID);
-        this.movieId = this.activatedRoute.snapshot.params.movieID;
-        this.movieService.getOneById(this.movieId).then(this.loadMovie.bind(this));
+        this.movieId=this.activatedRoute.snapshot.params.movieID;
+        console.log(this.movieId);
+        this.loadMovie(this.movieId);     
     }
 
-    loadMovie(movie:Movie): void{
-        this.selectedMovie=movie;
-        console.log(this.selectedMovie);
+    loadMovie(movieId:string) : void{
+        this.movieService.getOneById(this.movieId).then(this.handleMovieLoad.bind(this), this.handleError.bind(this));     
+    }
+
+    handleMovieLoad(movie:any) : void{
+        console.log(movie);
+        if(movie === undefined) return;
+        this.movie = movie;
+    }
+
+    handleError() : void{
+        console.log("An error ocurred when try to load the selected movie.");
+    }
+
+    getImageSource (): string {
+        return `https://image.tmdb.org/t/p/w342/${this.movie.poster_path}`;
     }
 
 }
