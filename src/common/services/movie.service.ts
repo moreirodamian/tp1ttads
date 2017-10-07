@@ -54,6 +54,22 @@ class MovieService {
             .catch(this.handleError);
     }
 
+    setRateMovie(movieId: string, MovieValue: number) {
+       
+        const params = this.getParams({
+            value : MovieValue
+        });
+       
+        const url = '/movie/'+movieId+'/rating';
+
+        this.http.post(this.getApiUrl(url), params)
+            .toPromise()
+            .then(response => response.json())
+            .catch(this.handleError);
+    }
+
+    
+
     handleError (): void {
 
     }
