@@ -5,20 +5,36 @@
         <div class="col-md-4">
             <img [src]="getImageSource()" class="movie--poster-image" />
         </div>
-        <div class="col-md-8">
-            <div>
-                <p>{{movie.overview}}</p>
-            </div>
-        </div>
+        
+        <table>
+            <tr>
+                <div class="col-md-8">
+                    <div>
+                        <p>{{movie.overview}}</p>
+                    </div>
+                </div>
+            </tr>
+            <tr>
+                <div class="col-md-8">
+                    <span class="movie--website">{{movie.homepage}}</span>
+                </div>  
+            </tr>
+            <tr>
+                <div class="col-md-4">
+                    <span class="movie--release-date">{{movie.release_date}}</span>   
+                </div>
+            </tr>
+            <tr>
+                <div class="col-md-2">
+                    <span class="movie--vote-average">{{movie.vote_average}}</span>
+                </div>
+            </tr>
+            <tr>
+                <div class="col-md-6">
+                    <button class="button--default-blue" (click)="clickBack()">Back</button>    
+                </div>
+            </tr>
+        </table>
 
-        <div class="col-md-4">  
-        <span class="movie--website">{{movie.homepage}}</span>
-        <span class="movie--release-date">{{movie.release_date}}</span>
-        <span class="movie--vote-average">{{movie.vote_average}}</span>
-        </div>
-
-        <div class="col-md-2">
-            <button class="button--default-blue" (click)="clickBack()">Back</button>
-        </div>
     </div>
 </div>
