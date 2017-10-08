@@ -26,3 +26,17 @@
         line-height: 20px;
     }
 }
+
+.button{
+
+    &--default-blue{
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    height: 25px;
+    }
+}
