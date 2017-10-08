@@ -1,0 +1,33 @@
+@import '~globals.scss';
+
+.movie {
+
+    &--website {
+        font-style: italic;
+        font-size: 15px;
+        float: left;
+        margin-right: 5px;
+    }
+
+    &--poster-image {
+        width: 100%;
+    }
+
+    &--overview {
+        color: #999999;
+        font-size: 13px;
+    }
+
+    &--release-date {
+        font-size: 15px;
+        line-height: 20px;
+        margin-left: 5px;
+    }
+
+    &--vote-average {
+        float: right;
+        line-height: 20px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+}

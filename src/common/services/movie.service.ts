@@ -6,8 +6,8 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 class MovieService {
-    apiKey: string = '7f52d59aee7f8dd981356b2d1a09cd07';
-    apiUrl: string = 'https://api.themoviedb.org/3/';
+    private apiKey: string = '7f52d59aee7f8dd981356b2d1a09cd07';
+    private apiUrl: string = 'https://api.themoviedb.org/3/';
     
     constructor (private http: Http) { }
 
@@ -18,7 +18,6 @@ class MovieService {
     getParams (paramsData: any): URLSearchParams {
         const keys = Object.keys(paramsData);
         const params = new URLSearchParams();
-
         params.set('api_key', this.apiKey);
 
         keys.forEach((key: string) => {
@@ -34,23 +33,22 @@ class MovieService {
             query: query,
             sort_by: 'popularity.desc'
         });
+        
         const url = (query) ? 'search/movie' : 'discover/movie';
-
         return this.http.get(this.getApiUrl(url), {params: params})
             .toPromise()
             .then(response => response.json().results.map((data: MovieInterface) => new Movie(data)))
             .catch(this.handleError);
     }
 
-    getOneById(movieId: string): Promise<void | Movie> {
+    getOneById(movieId: string): Promise<void | any> {
         const params = this.getParams({
-            external_id : movieId
         });
-        const url = 'find/movie';
 
+        const url = 'movie/' + movieId;
         return this.http.get(this.getApiUrl(url), {params:params})
             .toPromise()
-            .then(response => response.json().resutls.map((data: MovieInterface) => new Movie(data)))
+            .then(response => response.json())
             .catch(this.handleError);
     }
 
@@ -70,8 +68,9 @@ class MovieService {
 
     
 
-    handleError (): void {
-
+    handleError (error:Response): void {
+        debugger;
+        console.log(error);
     }
 }
 
