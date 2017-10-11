@@ -58,7 +58,7 @@ class MovieService {
             value : MovieValue
         });
        
-        const url = '/movie/'+movieId+'/rating';
+        const url = 'movie/'+movieId+'/rating';
 
         this.http.post(this.getApiUrl(url), params)
             .toPromise()
