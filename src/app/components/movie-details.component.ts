@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MovieService } from "../../common/services/movie.service";
 import { Movie } from "../../classes/movie";
 import { ActivatedRoute } from '@angular/router';
+import { MovieRateComponent } from './movie-rate.component';
 
 
 @Component({
@@ -44,6 +45,11 @@ export class MovieDetailsComponent implements OnInit {
 
     getImageSource (): string {
         return `https://image.tmdb.org/t/p/w342/${this.movie.poster_path}`;
+    }
+
+    sendRate(Movieid:string, value:number){
+        this.movieService.setRateMovie(Movieid, value)
+        
     }
 
 }
