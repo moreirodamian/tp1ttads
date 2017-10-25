@@ -55,21 +55,14 @@ class MovieService {
 
 //LO QUE QUIERO HACER ACA, ES LO SIGUIENTE: SI NO OBTUVE ANTERIORMENTE EL SESSION ID LO PIDO, SINO DEVUELVO EL QUE YA TENGO.
 // PERO NO ME ESTARIA FUNCINANDO EL SET
-    getGuestSessionId(){
-        debugger;
-        if(this.guestSessionId!=null)
-        {
-            return this.guestSessionId;
-        } else {
+    getGuestSessionId(): Promise<void | any>{
             const url = 'authentication/guest_session/new?api_key='+this.apiKey;
-            this.http.get(this.getApiUrl(url))
+
+            return this.http.get(this.getApiUrl(url))
                 .toPromise()
                 .then(response => response.json())
-                .then(request_token => this.guestSessionId = request_token)
                 .catch(this.handleError);
-            return this.guestSessionId;
-        
-        }
+       
     }
 
     setRateMovie(movieId: string, MovieValue: number) {
@@ -78,6 +71,10 @@ class MovieService {
             value : MovieValue
         });
        
+        let authJson :any = this.getGuestSessionId();
+        if(!this.guestSessionId) this.getGuestSessionId().then(data => this.guestSessionId=data.guest_session_id);
+        let requestToken = authJson.guest_session_id;
+        debugger;
         const url = 'movie/'+movieId+'/rating?api_key='+this.apiKey+'&guest_session_id='+this.getGuestSessionId();
 
         this.http.post(this.getApiUrl(url), params)
