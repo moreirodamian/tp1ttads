@@ -10,7 +10,9 @@ import { MainViewComponent } from '@app/components/main-view.component';
 import { MoviesListComponent } from '@app/components/movies-list.component';
 import { MovieSummaryComponent } from '@app/components/movie-summary.component';
 import { MovieDetailsComponent } from '@app/components/movie-details.component';
+import { MovieRateComponent } from '@app/components/movie-rate.component';
 import { RouterModule, Routes} from '@angular/router';
+import { StarRatingModule } from 'angular-star-rating'; //COMPONENTE FEO NOT WORKING
 
 const routes:Routes = [
     {
@@ -34,7 +36,8 @@ const routes:Routes = [
         MainViewComponent,
         MoviesListComponent,
         MovieSummaryComponent,
-        MovieDetailsComponent
+        MovieDetailsComponent,
+        MovieRateComponent
     ],
     imports: [
         BrowserModule,
@@ -42,7 +45,10 @@ const routes:Routes = [
         ComponentsCoreModule,
         FormsModule,
         HttpModule,
-        RouterModule.forRoot(routes)
+        RouterModule.forRoot(routes),
+        StarRatingModule
+
+
     ],
     providers: [
 

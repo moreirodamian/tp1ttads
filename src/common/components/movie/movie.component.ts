@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { MovieService } from "../../../common/services/movie.service";
 import { Movie } from '@classes/movie';
 
 @Component({
@@ -12,8 +12,9 @@ import { Movie } from '@classes/movie';
 })
 export class MovieComponent implements OnInit {
     @Input() movie: Movie;
+    providers: [MovieService]
 
-    constructor(private _router:Router){
+    constructor(private movieService: MovieService,private _router:Router){
 
     }
 
@@ -34,4 +35,6 @@ export class MovieComponent implements OnInit {
     showDetails (movieId:string): void{
         this._router.navigate(['/movie-details', movieId]);
     }
+
+  
 }

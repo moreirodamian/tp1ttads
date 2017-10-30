@@ -8,6 +8,7 @@ import 'rxjs/add/operator/toPromise';
 class MovieService {
     private apiKey: string = '7f52d59aee7f8dd981356b2d1a09cd07';
     private apiUrl: string = 'https://api.themoviedb.org/3/';
+    private guestSessionId: string = null; 
     
     constructor (private http: Http) { }
 
@@ -51,6 +52,38 @@ class MovieService {
             .then(response => response.json())
             .catch(this.handleError);
     }
+
+//LO QUE QUIERO HACER ACA, ES LO SIGUIENTE: SI NO OBTUVE ANTERIORMENTE EL SESSION ID LO PIDO, SINO DEVUELVO EL QUE YA TENGO.
+// PERO NO ME ESTARIA FUNCINANDO EL SET
+    getGuestSessionId(): Promise<void | any>{
+            const url = 'authentication/guest_session/new?api_key='+this.apiKey;
+
+            return this.http.get(this.getApiUrl(url))
+                .toPromise()
+                .then(response => response.json())
+                .catch(this.handleError);
+       
+    }
+
+    setRateMovie(movieId: string, MovieValue: number) {
+       
+        const params = this.getParams({
+            value : MovieValue
+        });
+       
+        let authJson :any = this.getGuestSessionId();
+        if(!this.guestSessionId) this.getGuestSessionId().then(data => this.guestSessionId=data.guest_session_id);
+        let requestToken = authJson.guest_session_id;
+        debugger;
+        const url = 'movie/'+movieId+'/rating?api_key='+this.apiKey+'&guest_session_id='+this.getGuestSessionId();
+
+        this.http.post(this.getApiUrl(url), params)
+            .toPromise()
+            .then(response => response.json())
+            .catch(this.handleError);
+    }
+
+    
 
     handleError (error:Response): void {
         debugger;
