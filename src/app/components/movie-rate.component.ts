@@ -28,9 +28,7 @@ export class MovieRateComponent implements OnInit {
     }
 
     ngOnInit(): void{
-        this.movieId=this.activatedRoute.snapshot.params.movieID;
-        console.log('Rate component');
-        console.log(this.movieId);     
+        this.movieId=this.activatedRoute.snapshot.params.movieID;   
     }
 
     sendRate(Movieid:string, value:number){

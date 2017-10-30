@@ -25,7 +25,6 @@ export class MovieDetailsComponent implements OnInit {
 
     ngOnInit(): void{
         this.movieId=this.activatedRoute.snapshot.params.movieID;
-        console.log(this.movieId);
         this.loadMovie(this.movieId);     
     }
 
@@ -34,7 +33,6 @@ export class MovieDetailsComponent implements OnInit {
     }
 
     handleMovieLoad(movie:any) : void{
-        console.log(movie);
         if(movie === undefined) return;
         this.movie = movie;
     }
