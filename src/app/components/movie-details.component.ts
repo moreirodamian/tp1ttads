@@ -20,7 +20,6 @@ export class MovieDetailsComponent implements OnInit {
     providers: [MovieService]
     
     constructor(private movieService: MovieService, private activatedRoute:ActivatedRoute){
-
     }
 
     ngOnInit(): void{
@@ -43,11 +42,6 @@ export class MovieDetailsComponent implements OnInit {
 
     getImageSource (): string {
         return `https://image.tmdb.org/t/p/w342/${this.movie.poster_path}`;
-    }
-
-    sendRate(Movieid:string, value:number){
-        this.movieService.setRateMovie(Movieid, value)
-        
     }
 
 }
