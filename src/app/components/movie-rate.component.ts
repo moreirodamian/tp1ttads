@@ -16,6 +16,7 @@ import {OnClickEvent, OnRatingChangeEven, OnHoverRatingChangeEvent} from "../../
 })
 export class MovieRateComponent {
     @Input() movieId:string;
+    @Input() rating:number;
 
     providers: [MovieService]
 
@@ -23,20 +24,17 @@ export class MovieRateComponent {
     }
 
     onClickResult:OnClickEvent;
-    onHoverRatingChangeResult:OnHoverRatingChangeEvent;
  
     onClick = ($event:OnClickEvent) => {
         this.sendRate($event.rating);
         this.onClickResult = $event;
     };
+    
 
     sendRate(value:number){
-        this.movieService.setRateMovie(this.movieId, value);        
+        this.movieService.setRateMovie(this.movieId, value*2);        
     }
  
-    onHoverRatingChange = ($event:OnHoverRatingChangeEvent) => {
-        console.log('onHoverRatingChange $event: ', $event);
-        this.onHoverRatingChangeResult = $event;
-    };
+  
 
 }

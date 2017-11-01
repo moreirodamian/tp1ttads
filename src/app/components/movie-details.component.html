@@ -12,11 +12,13 @@
         </div>
 
         <div class="col-md-4">  
-        <span class="movie--website">{{movie.homepage}}</span>
-        <span class="movie--release-date">{{movie.release_date}}</span>
-        <span class="movie--vote-average">{{movie.vote_average}}</span>
+            <span class="movie--website">{{movie.homepage}}</span>
+            <span class="movie--release-date">{{movie.release_date}}</span>
         </div>
+        <movies-rate [movieId]="movieId" [rating]="5"></movies-rate>
+        {{movie.vote_average}}    
+    </div>
 
-        <movies-rate [movieId]="movieId"></movies-rate>
+        
     
 </div>

@@ -59,7 +59,6 @@ class MovieService {
                 .toPromise()
                 .then(response => response.json().guest_session_id)
                 .catch(this.handleError);
-       
     }
 
     setRateMovie(movieId: string, MovieValue: number) {
@@ -83,7 +82,7 @@ class MovieService {
                     .toPromise()
                     .then(response => response.json())
                     .catch(this.handleError);
-    }    
+    }
 
     handleError (error:Response): void {
         console.log(error);
