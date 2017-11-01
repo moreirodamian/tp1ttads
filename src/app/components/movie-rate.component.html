@@ -1,2 +1,10 @@
-<star-rating-comp   [starType]="'svg'"></star-rating-comp>             
+<star-rating-comp   [starType]="'svg'" 
+[hoverEnabled]="true"
+(onClick)="onClick($event)" 
+(onRatingChange)="onRatingChange($event)"
+(onHoverRatingChange)="onHoverRatingChange($event)">                             
+</star-rating-comp>
+<p>onHoverRatingChangeResult: {{onHoverRatingChangeResult | json}}</p>
+<p>onClickResult: {{onClickResult | json}}</p>
+<p>onRatingChangeResult: {{onRatingChangeResult | json}}</p>        
 

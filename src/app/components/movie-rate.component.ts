@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MovieService } from "../../common/services/movie.service";
 import { Movie } from "../../classes/movie";
 import { ActivatedRoute } from '@angular/router';
-//import {OnClickEvent, OnRatingChangeEven, OnHoverRatingChangeEvent} from "angular-star-rating/src/star-rating-struct";
-
-// NO ANDAAAAAAAAA
+import {OnClickEvent, OnRatingChangeEven, OnHoverRatingChangeEvent} from "../../../node_modules/angular-star-rating/star-rating-struct";
 
 // SRC: https://www.npmjs.com/package/angular-star-rating
 
@@ -16,43 +14,25 @@ import { ActivatedRoute } from '@angular/router';
         'movie-rate.component.scss'
     ]
 })
-export class MovieRateComponent implements OnInit {
+export class MovieRateComponent {
 
-    private movie : any;
-    private movieId : string;
-
-    providers: [MovieService]
-    
-    constructor(private movieService: MovieService, private activatedRoute:ActivatedRoute){
-
-    }
-
-    ngOnInit(): void{
-        this.movieId=this.activatedRoute.snapshot.params.movieID;   
-    }
-
-    sendRate(Movieid:string, value:number){
-        this.movieService.setRateMovie(Movieid, value)
-        
-    }
-
-     //  onClickResult:OnClickEvent;
-    //  onHoverRatingChangeResult:OnHoverRatingChangeEvent;
-   //  onRatingChangeResult:OnRatingChangeEven;
+    onClickResult:OnClickEvent;
+    onHoverRatingChangeResult:OnHoverRatingChangeEvent;
+    onRatingChangeResult:OnRatingChangeEven;
  
-    //onClick = ($event:OnClickEvent) => {
-   //  console.log('onClick $event: ', $event)
-         //this.onClickResult = $event;
-    //};
+    onClick = ($event:OnClickEvent) => {
+        console.log('onClick $event: ', $event);
+        this.onClickResult = $event;
+    };
  
-   // onRatingChange = ($event:OnRatingChangeEven) => {
-      //  console.log('onRatingUpdated $event: ', $event);
-        //this.onRatingChangeResult = $event;
-  //  };
+    onRatingChange = ($event:OnRatingChangeEven) => {
+        console.log('onRatingUpdated $event: ', $event);
+        this.onRatingChangeResult = $event;
+    };
  
-    //onHoverRatingChange = ($event:OnHoverRatingChangeEvent) => {
-      //  console.log('onHoverRatingChange $event: ', $event);
-        //this.onHoverRatingChangeResult = $event;
-    //};
+    onHoverRatingChange = ($event:OnHoverRatingChangeEvent) => {
+        console.log('onHoverRatingChange $event: ', $event);
+        this.onHoverRatingChangeResult = $event;
+    };
 
 }
