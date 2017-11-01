@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MovieService } from "../../common/services/movie.service";
 import { Movie } from "../../classes/movie";
 import { ActivatedRoute } from '@angular/router';
@@ -15,6 +15,7 @@ import {OnClickEvent, OnRatingChangeEven, OnHoverRatingChangeEvent} from "../../
     ]
 })
 export class MovieRateComponent {
+    @Input() movieId:string;
 
     onClickResult:OnClickEvent;
     onHoverRatingChangeResult:OnHoverRatingChangeEvent;
@@ -22,6 +23,7 @@ export class MovieRateComponent {
  
     onClick = ($event:OnClickEvent) => {
         console.log('onClick $event: ', $event);
+        console.log("MovieID" + this.movieId);
         this.onClickResult = $event;
     };
  
