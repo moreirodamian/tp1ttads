@@ -1,13 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MovieService } from "../../common/services/movie.service";
 import { Movie } from "../../classes/movie";
-<<<<<<< HEAD
-import { ActivatedRoute, Router } from '@angular/router';
-=======
-import { ActivatedRoute } from '@angular/router';
 import { MovieRateComponent } from './movie-rate.component';
 
->>>>>>> 9dc0c1c10825d6d682a834ae52c9129535875baf
 
 @Component({
     selector: 'movies-details',
