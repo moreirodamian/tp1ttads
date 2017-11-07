@@ -10,13 +10,9 @@
                 <p>{{movie.overview}}</p>
             </div>
         </div>
-
-        <div class="col-md-4">  
-            <span class="movie--website">{{movie.homepage}}</span>
-            <span class="movie--release-date">{{movie.release_date}}</span>
+        <div class="col-md-2">
+            <movies-rate [movieId]="movieId" [rating]="movie.vote_average"></movies-rate>
         </div>
-        <movies-rate [movieId]="movieId" [rating]="5"></movies-rate>
-        {{movie.vote_average}}    
     </div>
 
         
