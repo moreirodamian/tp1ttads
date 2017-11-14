@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MovieService } from "../../common/services/movie.service";
 import { Movie } from "../../classes/movie";
-import { ActivatedRoute } from '@angular/router';
 import { MovieRateComponent } from './movie-rate.component';
 
 
@@ -19,8 +19,9 @@ export class MovieDetailsComponent implements OnInit {
 
     providers: [MovieService]
     
-    constructor(private movieService: MovieService, private activatedRoute:ActivatedRoute){
-    }
+
+    constructor(private movieService: MovieService, 
+    private activatedRoute:ActivatedRoute, private router:Router){ }
 
     ngOnInit(): void{
         this.movieId=this.activatedRoute.snapshot.params.movieID;
@@ -44,4 +45,12 @@ export class MovieDetailsComponent implements OnInit {
         return `https://image.tmdb.org/t/p/w342/${this.movie.poster_path}`;
     }
 
+
+    clickBack(): void{
+        this.router.navigate(['/home']);
+        }
+
+    sendRate(Movieid:string, value:number){
+        this.movieService.setRateMovie(Movieid, value)
+    }
 }
