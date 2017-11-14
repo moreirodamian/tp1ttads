@@ -4,8 +4,7 @@
     <div class="row">
         <div class="col-md-4">
             <img [src]="getImageSource()" class="movie--poster-image" />
-        </div>
-        
+    </div>
 
         <table>
             <tr>
@@ -26,8 +25,8 @@
                 </div>
             </tr>
             <tr>
-                <div class="col-md-2">
-                    <span class="movie--vote-average">{{movie.vote_average}}</span>
+                <div class="col-md-6">
+                    <movies-rate [movieId]="movieId" [rating]="movie.vote_average" class="movie--vote-average"></movies-rate>
                 </div>
             </tr>
             <tr>
@@ -36,12 +35,5 @@
                 </div>
             </tr>
         </table>
-
     </div>
-    
-        <button class="btn btn-icon" (click)="sendRate(movie.id, 2)">Set 2 Points</button> 
-        <button class="btn btn-icon" (click)="sendRate(movie.id, 4)">Set 4 Points</button> 
-        <button class="btn btn-icon" (click)="sendRate(movie.id, 6)">Set 6 Points</button> 
-        <button class="btn btn-icon" (click)="sendRate(movie.id, 8)">Set 8 Points</button> 
-        <button class="btn btn-icon" (click)="sendRate(movie.id, 10)">Set 10 Points</button> 
 </div>

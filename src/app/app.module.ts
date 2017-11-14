@@ -46,7 +46,7 @@ const routes:Routes = [
         FormsModule,
         HttpModule,
         RouterModule.forRoot(routes),
-        StarRatingModule
+        StarRatingModule.forRoot()
 
 
     ],

@@ -19,13 +19,12 @@ export class MovieDetailsComponent implements OnInit {
 
     providers: [MovieService]
     
+
     constructor(private movieService: MovieService, 
-    private activatedRoute:ActivatedRoute, private router:Router){
-    }
+    private activatedRoute:ActivatedRoute, private router:Router){ }
 
     ngOnInit(): void{
         this.movieId=this.activatedRoute.snapshot.params.movieID;
-        console.log(this.movieId);
         this.loadMovie(this.movieId);     
     }
 
@@ -34,7 +33,6 @@ export class MovieDetailsComponent implements OnInit {
     }
 
     handleMovieLoad(movie:any) : void{
-        console.log(movie);
         if(movie === undefined) return;
         this.movie = movie;
     }
@@ -47,6 +45,7 @@ export class MovieDetailsComponent implements OnInit {
         return `https://image.tmdb.org/t/p/w342/${this.movie.poster_path}`;
     }
 
+
     clickBack(): void{
         this.router.navigate(['/home']);
         }
@@ -54,5 +53,4 @@ export class MovieDetailsComponent implements OnInit {
     sendRate(Movieid:string, value:number){
         this.movieService.setRateMovie(Movieid, value)
     }
-
 }
